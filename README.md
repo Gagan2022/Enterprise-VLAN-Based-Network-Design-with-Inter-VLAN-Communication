@@ -1,116 +1,126 @@
-# Small Office Network Design – VLAN & Inter-VLAN Routing
+# Enterprise VLAN-Based Network Design with Inter-VLAN Communication
 
 ## 📌 Project Overview
 
-This project demonstrates the design and validation of a **VLAN-based small office enterprise network**. The network is logically segmented at **Layer 2 using VLANs** and enabled for **controlled inter-VLAN communication at Layer 3** using a router.
+This project demonstrates the design and implementation of an **enterprise-level VLAN-based network** with **Inter-VLAN communication** using Cisco networking concepts. The objective is to segment the network into multiple VLANs for improved performance, security, and manageability, while enabling controlled communication between VLANs using a Layer 3 device.
 
-The project was completed as **hands-on practice after CCNA M1 & M2**, focusing on realistic enterprise LAN design concepts using **Cisco Packet Tracer**.
-
----
-
-## 🎯 Project Objectives
-
-- Design an enterprise-style LAN with multiple departments
-- Implement **logical isolation at Layer 2** using VLANs
-- Create an **IPv4 subnetting plan** for each VLAN
-- Enable **inter-VLAN routing** for controlled communication
-- Validate end-to-end connectivity across VLANs
+The project closely follows **CCNA-level enterprise networking standards** and simulates a real-world organizational network.
 
 ---
 
-## 🏢 Network Scenario
+## 🎯 Objectives
 
-A small organization has the following departments:
-
-- **HR**
-- **IT**
-- **Sales**
-
-Each department requires:
-
-- A dedicated network segment for security and traffic control
-- The ability to communicate with other departments when required
+* Design a scalable enterprise network using VLANs
+* Implement logical network segmentation
+* Enable communication between VLANs (Inter-VLAN Routing)
+* Apply best practices for IP addressing and subnetting
+* Configure Cisco switches and routers
+* Verify connectivity using testing and troubleshooting tools
 
 ---
 
-## 🧩 Network Components Used
+## 🧱 Network Architecture
 
-- **1 Router** – provides inter-VLAN routing and default gateways
-- **3 Layer 2 Switches** – connect end devices and enforce VLAN separation
-- **Multiple PCs** – assigned to different departments
-- **Ethernet connections** for device connectivity
-
----
-
-## 🌐 Network Design Summary
-
-- Departments are separated using **VLANs**, ensuring Layer 2 logical isolation
-- Each VLAN is assigned a **unique IPv4 subnet**
-- The router acts as the **centralized routing point** for all VLANs
-- Inter-VLAN communication occurs only through Layer 3 routing
+* **Access Layer:** VLAN-based access switches
+* **Distribution Layer:** Router-on-a-Stick (ROAS) for Inter-VLAN routing
+* **End Devices:** PCs representing different departments
 
 ---
 
-## 🧮 VLAN & IP Addressing Plan
+## 🗂 VLAN Design
 
-The network includes:
-
-- A VLAN-to-department mapping
-- A dedicated IPv4 subnet for each VLAN
-- A default gateway assigned per VLAN
-
-Detailed VLAN assignment tables and subnetting tables are included as part of the project documentation.
-
----
-
-## 🔁 Inter-VLAN Communication
-
-- Devices within the same VLAN can communicate directly
-- Devices in different VLANs require routing through the router
-- Layer 2 isolation is maintained while allowing Layer 3 connectivity
+| VLAN ID | VLAN Name | Department       |
+| ------: | --------- | ---------------- |
+|      10 | Sales     | Sales            |
+|      20 | IT        | IT Department    |
+|      30 | HR        | Human Resources  |
+|      40 | Native    |        --        |
 
 ---
 
-## 🔍 Validation & Testing
+## 🌐 IP Addressing Scheme
 
-The network was validated by:
-
-- Verifying correct VLAN membership for all devices
-- Testing intra-VLAN communication
-- Testing inter-VLAN communication using ping
-- Confirming successful routing between all VLANs
-
----
-
-## 🧠 Concepts Demonstrated
-
-- VLAN-based network segmentation
-- Layer 2 isolation vs Layer 3 communication
-- IPv4 subnetting and address planning
-- Inter-VLAN routing concepts
-- Enterprise LAN design fundamentals
+| VLAN | Network Address | Subnet Mask     | Default Gateway |
+| ---: | --------------- | -------------   | --------------- |
+|   10 | 192.168.10.0    | 255.255.255.192 | 192.168.10.1    |
+|   20 | 192.168.10.64   | 255.255.255.192 | 192.168.10.65   |
+|   30 | 192.168.10.128  | 255.255.255.192 | 192.168.10.129  |
 
 ---
 
-## 🛠 Tools Used
+## ⚙️ Technologies & Tools Used
 
-- Cisco Packet Tracer
-- Cisco IOS (basic routing and switching concepts)
-
----
-
-## 📂 Project Artifacts
-
-- Network topology diagram
-- VLAN assignment tables
-- Subnetting / IP addressing tables
-- Inter-VLAN connectivity test screenshots
-
-
+* Cisco Packet Tracer
+* Cisco Routers and Switches
+* VLAN Configuration
+* Trunking (802.1Q)
+* Router-on-a-Stick (ROAS)
+* Subnetting & IP Addressing
+* ICMP (Ping) for testing
 
 ---
 
-## 🚀 Learning Outcome
+## 🔧 Key Configurations
 
-This project strengthened my understanding of enterprise LAN design by combining VLAN segmentation, subnetting, and routing into a single scalable and structured network solution.
+### Switch Configuration
 
+* VLAN creation and naming
+* Access port assignment
+* Trunk port configuration
+
+### Router Configuration
+
+* Sub-interface creation
+* Encapsulation using 802.1Q
+* IP address assignment for each VLAN
+* Enabling Inter-VLAN routing
+
+---
+
+## 🧪 Verification & Testing
+
+* Ping tests between devices in the **same VLAN**
+* Ping tests between devices in **different VLANs**
+* Verification of trunk links and VLAN assignments
+
+All VLANs successfully communicate through the router, confirming correct Inter-VLAN routing.
+
+---
+
+## 📁 Project Files
+
+* Network topology (.pkt file)
+* VLAN & Subnetting tables (Excel/PDF)
+* Configuration screenshots
+* README.md (this file)
+
+---
+
+## 📘 Learning Outcomes
+
+* Strong understanding of VLAN concepts
+* Practical knowledge of Inter-VLAN routing
+* Hands-on experience with enterprise network design
+* Improved troubleshooting and verification skills
+
+---
+
+## 🚀 Future Enhancements
+
+* Implement DHCP for dynamic IP allocation
+* Add ACLs for traffic filtering between VLANs
+* Introduce redundancy using multiple switches
+* Integrate Wireless VLANs
+
+---
+
+## 👤 Author
+
+**Gagan Agarwal**
+Aspiring Network Engineer 
+
+---
+
+## 📄 License
+
+This project is for educational and learning purposes only.
